@@ -9,6 +9,10 @@ var app = express();
 
 app.use(bodyParser.json());
 
+// Create link to Angular build directory
+var distDir = __dirname + "/dist/";
+app.use(express.static(distDir));
+
 var db;
 
 mongodb.MongoClient.connect(process.env.MONGODB_URI, function(err, database) {
